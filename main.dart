@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'detalleproducto.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,77 +9,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lista con Imágenes y Fuentes',
+      title: 'Ejercicio02',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ListaConImagenes(),
-    );
-  }
-}
-
-class ListaConImagenes extends StatelessWidget {
-  final List<Map<String, dynamic>> elementos = [
-    {
-      'categoria': 'Alimentos',
-      'nombre': 'Pizza',
-      'imagen': 'assets/images/pizza.jpg',
-      'fuente': 'OpenSans',
-    },
-    {
-      'categoria': 'Alimentos',
-      'nombre': 'Manzana',
-      'imagen': 'assets/images/manzana.jpg',
-      'fuente': 'OpenSans',
-    },
-    {
-      'categoria': 'Animales',
-      'nombre': 'Perro',
-      'imagen': 'assets/images/perro.jpg',
-      'fuente': 'Lato',
-    },
-    {
-      'categoria': 'Animales',
-      'nombre': 'Gato',
-      'imagen': 'assets/images/gato.jpg',
-      'fuente': 'Lato',
-    },
-    {
-      'categoria': 'Lugares',
-      'nombre': 'París',
-      'imagen': 'https://media.istockphoto.com/id/1072749124/es/foto/torre-eiffel-y-vista-panor%C3%A1mica-del-horizonte-de-par%C3%ADs-vibrante-atardecer-europeo.jpg?s=1024x1024&w=is&k=20&c=zo5CpnwJ7QL8G4xv9LpTduApdvNyBuMXxvFtROzid9U=', // Imagen de la web
-      'fuente': 'Ubuntu',
-    },
-    {
-      'categoria': 'Lugares',
-      'nombre': 'Nueva York',
-      'imagen': 'https://media.istockphoto.com/id/1476291604/es/foto/la-pintoresca-arquitectura-en-el-distrito-de-knightsbridge-londres-inglaterra-reino-unido.jpg?s=2048x2048&w=is&k=20&c=dJOGxTnzose7DEB77qCl4VuIc4wojiWfhDmVu5IuHkM=', // Imagen de la web
-      'fuente': 'Ubuntu',
-    },
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Ejercicio 01'),
-      ),
-      body: ListView.builder(
-        itemCount: elementos.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: elementos[index]['imagen'].startsWith('http')
-                ? Image.network(elementos[index]['imagen'])
-                : Image.asset(elementos[index]['imagen']),
-            title: Text(
-              elementos[index]['nombre'],
-              style: TextStyle(
-                fontFamily: elementos[index]['fuente'],
-              ),
-            ),
-            subtitle: Text(elementos[index]['categoria']),
-          );
-        },
+      home: DetalleProducto(
+        nombre: 'CASE Completo ASUS',
+        precio: '\$3000',
+        descripcion: 'Este Case contiene las siguientes características: Geforce RTX 3070, 32gb RAM, Core i7-12400, ASUS Z902',
+        imagenUrl: 'https://media.istockphoto.com/id/1314343964/es/foto/unidad-de-sistema-de-gama-alta-para-el-primer-plano-de-la-computadora-de-juego.jpg?s=2048x2048&w=is&k=20&c=4ZfOgrUzagfHV0jGwuxoA_3IPZldmI9eqG3aBX-P0_Q=',
       ),
     );
   }
