@@ -1,0 +1,36 @@
+name: Lab09
+description: lab09.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: fonts/OpenSans-Regular.ttf
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Regular.ttf
+    - family: Ubuntu
+      fonts:
+        - asset: fonts/Ubuntu-Regular.ttf
+
+  assets:
+    - assets/images/
